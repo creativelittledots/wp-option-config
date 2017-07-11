@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WP Option Config
-Description: Checks config.php for options when calling get_option function
+Description: A Wordpress MU Plugin that checks a config file for options when calling get_option function
 Author: Creative Little Dots
 Version: 1.0
 Author URI: https://creativelittledots.co.uk
@@ -64,9 +64,13 @@ class Config {
 
 Config::init();
 
-function config($key, $default = false) {
+if( ! function_exists( 'config' ) ) {
 
-	return Config::get($key, $default);
+	function config($key, $default = false) {
+	
+		return Config::get($key, $default);
+	
+	}
 
 }
 
