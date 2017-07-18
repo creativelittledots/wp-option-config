@@ -13,10 +13,17 @@ namespace OptionConfig;
 class Config {
 	
 	public static $config = [];
+	public static $instance = null;
 	
 	public static function init() {
 		
-		return new static();
+		if( ! static::$instance ) {
+		
+			static::$instance = new static();
+			
+		}
+		
+		return static::$instance;
 		
 	}
 	
@@ -32,23 +39,15 @@ class Config {
 			
 			static::$config = include CONFIG_PATH;
 			
-			add_filter( 'all', function($value) { 
+			foreach( static::$config as $key => $value ) {
 				
-				if( count( func_get_args() ) == 2 ) {
-				
-					list($value, $key) = func_get_args();
+				add_filter( 'pre_option_' . $key, function() use($value) {
 					
-					if ( is_string( $key ) && strpos( $key, 'pre_option_' ) !== false ) {
-			
-						return static::get($key, $value); 
-						
-					}
+					return $value;
 					
-				}
+				} );
 				
-				return $value;
-			
-			}, 10, 2 );
+			}
 			
 		}
 		
