@@ -7,14 +7,20 @@ Just upload `wp-option-config.php` to your `mu-plugins/` folder, add the `config
 WP Option Config supports `WPMU` as all options are filtered through `config.php` regardless of the current `blog_id`. Here are some ways you can write conditions for `WPMU` or your general environment:
 
 ```php
+// wp-config.php
+
+define( 'WP_ENV', $_SERVER['HTTP_HOST'] == 'domain.local' ? 'TESTING' : 'PRODUCTION';
+```
+
+```php
 // config.php
 
 return [
 
-    'smtp_host'     => WESAYY_ENV == 'TESTING' ? 'smtp.mailtrap.io' : 'smtp.sparkpostmail.com',
-    'smtp_port'     => WESAYY_ENV == 'TESTING' ? 2525 : 587,
-    'smtp_user'     => WESAYY_ENV == 'TESTING' ? 'username' : 'another_username',
-    'smtp_pass'     => WESAYY_ENV == 'TESTING' ? 'passwors' : 'another_password',
+    'smtp_host'     => WP_ENV == 'TESTING' ? 'smtp.mailtrap.io' : 'smtp.sparkpostmail.com',
+    'smtp_port'     => WP_ENV == 'TESTING' ? 2525 : 587,
+    'smtp_user'     => WP_ENV == 'TESTING' ? 'username' : 'another_username',
+    'smtp_pass'     => WP_ENV == 'TESTING' ? 'passwors' : 'another_password',
 
 ];
 ```
