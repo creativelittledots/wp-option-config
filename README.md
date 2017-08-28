@@ -20,7 +20,7 @@ return [
     'smtp_host'     => WP_ENV == 'TESTING' ? 'smtp.mailtrap.io' : 'smtp.sparkpostmail.com',
     'smtp_port'     => WP_ENV == 'TESTING' ? 2525 : 587,
     'smtp_user'     => WP_ENV == 'TESTING' ? 'username' : 'another_username',
-    'smtp_pass'     => WP_ENV == 'TESTING' ? 'passwors' : 'another_password',
+    'smtp_pass'     => WP_ENV == 'TESTING' ? 'password' : 'another_password',
 
 ];
 ```
