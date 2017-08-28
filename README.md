@@ -4,7 +4,7 @@ This is a MU Plugin for Wordpress that helps to control options by filtering che
 
 Just upload `wp-option-config.php` to your `mu-plugins/` folder, add the `config.php` file to the root of your Wordpress installation and start adding your options as required.
 
-WP Option Config supports `WPMU` as all options are filtered through `config.php` regardless of the current `blog_id`. Here are some ways you can write conditions for `WPMU` or you general environment:
+WP Option Config supports `WPMU` as all options are filtered through `config.php` regardless of the current `blog_id`. Here are some ways you can write conditions for `WPMU` or your general environment:
 
 ```php
 // config.php
