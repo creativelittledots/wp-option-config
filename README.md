@@ -9,7 +9,7 @@ WP Option Config supports `WPMU` as all options are filtered through `config.php
 ```php
 // wp-config.php
 
-define( 'WP_ENV', $_SERVER['HTTP_HOST'] == 'domain.local' ? 'TESTING' : 'PRODUCTION';
+define( 'WP_ENV', $_SERVER['HTTP_HOST'] == 'domain.local' ? 'TESTING' : 'PRODUCTION' );
 ```
 
 ```php
